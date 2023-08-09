@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Player {
-    ArrayList<Card> cards;
+    private ArrayList<Card> cards;
 
     /**
      * Constructor for the Player class.
@@ -14,8 +14,9 @@ public class Player {
      */
     public Player () {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter txt file path: ");
+        System.out.print("Enter txt file path: ");
         cards = makeCards(scanner.nextLine());
+        System.out.println("\n");
     }
 
     /**
@@ -49,5 +50,23 @@ public class Player {
         for (Card c : this.cards) {
             System.out.println(c.toString());
         }
+    }
+
+    /*
+     * Returns the number of cards remaining in the set
+     */
+    public int num_cards() {
+        return this.cards.size();
+    }
+
+    /*
+     * Returns the array list of cards
+     */
+    public ArrayList<Card> get_cards() {
+        return this.cards;
+    }
+    
+    public void remove_card(Card card) {
+        this.cards.remove(card);
     }
 }

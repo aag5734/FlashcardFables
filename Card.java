@@ -46,9 +46,17 @@ public class Card {
     /**
      * Increment the familiarity level of the card.
      * This method is called when the user correctly matches a term to its definition.
+     * 
+     * If familiarity is 5, then a true boolean will be sent. This is used to remove
+     * the card from the deck.
      */
-    public void incFamiliarity() {
+    public Boolean incFamiliarity() {
         familiarity++;
+        if (familiarity == 5) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -56,7 +64,9 @@ public class Card {
      * This method is called when the user incorrectly matches a term to its definition.
      */
     public void decFamiliarity() {
-        familiarity--;
+        if (familiarity > 0) {
+            familiarity--;
+        }
     }
 
     /**
@@ -76,6 +86,6 @@ public class Card {
      */
     @Override
     public String toString() {
-        return this.term + ": " + this.def + "\n";
+        return this.term + ": " + this.def + "\n " + this.familiarity;
     }
 }
