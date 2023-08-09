@@ -1,0 +1,63 @@
+Cipher	Algorithm for encrypting and decrypting data
+Symmetric Encryption	A type of encryption that uses a single key that needs to be shared among the people who need to receive the message
+Asymmetric Encryption	A type of encryption that uses a public and private key to encrypt/decrypt messages when communicating (public key encryption)
+Stream Ciphers	A symmetric key cipher where a stream of pseudorandom bits (keystream) is generated based on an encryption key and a nonce
+Block Cipher	A symmetric key cipher that breaks down plaintext messages into fixed-size blocks before converting them into ciphertext using a key schedule.
+MAC (Message Authentication Code)	Used to authenticate the origin and nature of a message using a key and outputting a tag
+RSA Key Generation	An asymmetric key cipher that uses two keys. Like what we did for project 3
+Distributed System	Systems that consist of multiple nodes, possibly across geographical boundaries, that communicate and coordinate their actions through HTTP, Meessage Passing, and shared memory
+Vertical Scaling	Upgrading an existing machine
+Horizontal Scaling	Adding more servers to the pool to meet increased demand
+Message Broker	A piece of middleware responsible for routing and communicating messages
+Point-to-point Messaging	A message broker distribution pattern that represents a one-to-one relationship between the message's sender and receiver. Each message in the queue is sent to only one recipient and is consumed only once.
+Publish/Subscribe Messaging	A message broker distribution pattern where message queues have a one-to-many relationship with the message sender (publisher) and the receiver (subscriber).
+Load Balancing	The methodical and efficient distribution of requests across multiple servers
+Round Robin	Static. A load balancing algorithm that distributes traffic across servers equally, despite specs
+Weighted Round Robin	Static. A load balancing algorithm that assigns more requests to the server with a higher capability of handling a greater load
+Least Connection	Dynamic. A load balancing algorithm that takes into consideration the number of current connections each server has and connects a client with the server that has the least number of connections
+Weighted Least Connection	Dynamic. A load balancing algorithm that takes into consideration the weights/capacities of each server and the number of connections.
+Random	Static. A load balancing algorithm that maps requests to servers using an underlying random number generator.
+Distributed Caching	A cache that pools together the RAM of multiple networked computers into a single in-memory data store used as a data cache to provide fast access to data
+Peer-to-Peer Computing	Each machine is a node that acts as a client and a server. All users contribute and consume resources within the network.
+Centralized P2P	A P2P system that mixes the features of both centralized and decentralized architectures. One or more central serves that help peers locate their desired resources or act as tasks schedulers to coordinate actions among them.
+Decentralized P2P	A P2P system in which peers have equal rights/responsibilities.
+Decentralized Unstructured P2P	A P2P system in which each peer is responsible for its own data and keeps track of a set of neighbors to whom it may forward queries
+Decentralized Structured P2P	A P2P system where there is no mapping between data and peers; instead, a distributed hash table is used for data placement.
+Distributed Hash Tables	Used for organizing nodes and indexing data. They store key/value pairs for all peers
+Chord DHT	A protocol and algorithm for a P2P DHT that uses consistent hashing. This is used to balance the load on the network since each node receives roughly the same number of keys and requires little movement of keys when nodes join/leave the system
+Routing Table	A table used in a P2P networking system that contains nodes that have an ID value and IP address
+Stabilization Protocol	An algorithm that periodically updates finger tables of affected nodes and successor pointers
+Parallel Computing	The simultaneous use of multiple computing resources to solve a problem
+Flynn's Taxonomy	Taxonomy that classifies parallel computer architectures along the two independent dimensions of Instruction Stream and Data Stream
+Single Instruction / Single Data Stream (SISD)	A non-parallel computer. Oldest type of computer with deterministic execution
+Single Instruction / Multiple Data Stream (SIMD)	A type of parallel computer. Best suited for specialized programs characterized by a high degree of regularity.
+Multiple Instruction / Single Data Stream (MISD)	A type of parallel computer. A single data stream is fed into multiple cores
+Multiple Instruction / Multiple Data Stream (MIMD)	Every processor may be executing a different instruction set and every professor may be working with a different data stream. Execution could be async or sync
+Multicore Hyper-Threading	A type of parallel computing hardware in which more than one thread can run on each core.
+GPU Accelerated	A type of parallel computing hardware that's used to facilitate processing-intensive operations (3d graphics) and requires lots of computing power
+Parallel Clusters	A type of parallel computing hardware. Can be Single Core Node Parallel, Multicore Node Parallel, and GPU Accelerated.
+Multicore Parallel Programs	A type of parallel computing software that consists of one process, multiple threads (one per core), and shared data
+Cluster Parallel Programs	A type of parallel computing software that consists of multiple processes (one per core), one thread per process, no thread sync issues, no shared data, and message passing
+Multicore Clustered Parallel Programs	A type of parallel computing software that consists of multiple processes (one process per node), multiple threads per process, one thread per core, shared memory parallel programming within a node, and message passing between nodes
+GPU Accelerated Programming	A type of parallel computing software where the CPU sets up input data into CPU memory, copies input data from CPU memory to GPU memory, executes a computational kernel, copies output data from GPU mem to CPU mem, and reports results
+Strong Scaling	A type of scaling in parallel computing that details how the solution time varies with the number of processors for a fixed total problem size.
+Weak Scaling	The scaled speedup increases linearly with respect to the number of processors and there is no limit for the scaled speedup (also known as Gustafson's law)
+Single Bit Error	A type of error in which only 1 bit in the data unit has changed
+Burst Error	A type of error in which 2 or more bits in the data unit have changed from 1 to 0 or vice versa
+Datawords	Messages that are divided into block, each of k bits
+Codewords	n-bit blocks of 'k' bits + redundant data 'r'
+Hamming Distance	The number of differences between the corresponding bits of two codewords
+Minimum Hamming Distance	The smallest hamming distance between all possible pairs in a set of words
+Vertical Redundancy Check	Also known as parity check, detects only one-bit errors.
+Parity Bit	A type of error detection in which a redundant bit is appended to every data word so that the total number of 1s in the codeword including the parity bit becomes even for even _____ or odd for odd _____
+Cyclic Redundancy Check (CRC)	A type of error detection that is based on binary division using XOR.
+Longitudinal Redundancy Check	A type of error detection (also known as 2D parity check) where a block of bits is divided into a table or matrix of rows and columns. It is used to detect burst errors
+CheckSum	A type of error detection in which units are divided into k sections of m bits, all m-bit segments are added, the resulting sum is complemented using 1's to get a resulting value. This value is then sent with the data where the receiver uses it to detect errors
+Hamming Code	A type of error checking in which a codeword is split into two portions: the message bits (m) and parity bits (k)
+File System	Management of data and files that are stored on logical block devices; dictates how the contents of a storage medium are stored and organized
+Redundant Array of Independent Disks (RAID)	Abstracts multiple disks into a single logical disk to your OS, which then partitions this single disk as usual
+RAID 0 (Block Level Striping)	A RAID system where data is divided into stripes with each stripe being written to each disk alternatively.
+RAID 1 (Block Level Mirror)	A RAID system where data is copied onto another disk
+RAID 10	A RAID system that mirrors data, then stripes
+RAID 2 (Bit Level Hamming)	A RAID system that uses hamming code to provide error correction on the data
+RAID 5 (XOR Block Level)	A RAID system that uses striping and parity information. The parity information repeats the original data in such a way that if part of the original is lost, combining the remainder of the original and parity data reproduces the original

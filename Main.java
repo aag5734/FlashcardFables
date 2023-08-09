@@ -38,12 +38,13 @@ public class Main {
      */
     public static void playCmdGame(Player player) {
         Random r = new Random();
-        ArrayList<Card> spell_cards = new ArrayList<Card>(5);
         ArrayList<Card> card_pool = player.getCards();
         String enemy;
+        int totalCards = player.numCards();
 
 
         while (true) {
+            ArrayList<Card> spell_cards = new ArrayList<Card>(5);
             if (player.numCards() == 0) {
                 break;
             }
@@ -54,9 +55,15 @@ public class Main {
                     Card curr_card = card_pool.get(r.nextInt(card_pool.size()));
                     spell_cards.add(i, curr_card);
                     card_pool.remove(curr_card);
+                    System.out.println(card_pool.size());
+                }
+                for (Card c : spell_cards) {
+                    card_pool.add(c);
                 }
             }
             enemy = spell_cards.get(r.nextInt(spell_cards.size())).getDef();
+
+            System.out.printf("PROGRESS: %d / %d cards mastered\n\n", totalCards - card_pool.size(), totalCards);
     
             System.out.println("SPELL CARDS:\n\n");
             int i = 1;
