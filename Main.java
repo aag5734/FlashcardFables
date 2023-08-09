@@ -2,8 +2,19 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * This class represents the main flashcard game where players are presented with
+ * spell cards containing terms pulled from a flashcard set. Players need to choose the correct
+ * spell card to match a randomly generated enemy definition. The goal is to increase the
+ * familiarity level of each spell card to 5 by choosing the correct card.
+ */
 public class Main {
     static Scanner s = new Scanner(System.in);
+
+    /**
+     * The main method that starts the flashcard game.
+     * @param args Command-line arguments (not used)
+     */
     public static void main(String[] args) {
         System.out.println("""
                                                                                      
@@ -21,6 +32,10 @@ public class Main {
         play_cmd_game(p1);
     }
 
+    /**
+     * This method plays the command-line version of the flashcard game with the given player.
+     * @param player The player object representing the game player
+     */
     public static void play_cmd_game(Player player) {
         Random r = new Random();
         ArrayList<Card> spell_cards = new ArrayList<Card>(5);
@@ -87,6 +102,9 @@ public class Main {
         System.out.println("Congratulations! You have mastered all the terms!");
     }
 
+    /**
+     * This method prints the rules of the flashcard game.
+     */
     public static void print_rules() {
         System.out.println("""
 Rules:

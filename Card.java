@@ -72,7 +72,6 @@ public class Card {
     /**
      * Check if the card is mastered.
      * A card is considered mastered when its familiarity level is equal to or greater than 5.
-     *
      * @return true if the card is mastered, false otherwise.
      */
     public boolean isMastered() {

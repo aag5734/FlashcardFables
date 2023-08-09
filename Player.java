@@ -52,20 +52,26 @@ public class Player {
         }
     }
 
-    /*
+    /**
      * Returns the number of cards remaining in the set
+     * @return the number of cards within the deck
      */
     public int num_cards() {
         return this.cards.size();
     }
 
-    /*
+    /**
      * Returns the array list of cards
+     * @return an array list containing all the current cards
      */
     public ArrayList<Card> get_cards() {
         return this.cards;
     }
     
+    /**
+     * Removes a given card from the player's cards
+     * @param card the card to be removed
+     */
     public void remove_card(Card card) {
         this.cards.remove(card);
     }
