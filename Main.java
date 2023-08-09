@@ -26,28 +26,28 @@ public class Main {
                 """);
         System.out.print("Would you like to read the rules (y/n): ");
         if (s.nextLine().equals("y")) {
-            print_rules();
+            printRules();
         }
         Player p1 = new Player();
-        play_cmd_game(p1);
+        playCmdGame(p1);
     }
 
     /**
      * This method plays the command-line version of the flashcard game with the given player.
      * @param player The player object representing the game player
      */
-    public static void play_cmd_game(Player player) {
+    public static void playCmdGame(Player player) {
         Random r = new Random();
         ArrayList<Card> spell_cards = new ArrayList<Card>(5);
-        ArrayList<Card> card_pool = player.get_cards();
+        ArrayList<Card> card_pool = player.getCards();
         String enemy;
 
 
         while (true) {
-            if (player.num_cards() == 0) {
+            if (player.numCards() == 0) {
                 break;
             }
-            else if (player.num_cards() < 5) {
+            else if (player.numCards() < 5) {
                 spell_cards = card_pool;
             } else {
                 for (int i = 0; i < 5; i++) {
@@ -90,12 +90,12 @@ public class Main {
     
             if (spell_cards.get(answer).getDef().equals(enemy)) {
                 System.out.printf("\nYou chose correctly! +1 famililarity to %s", spell_cards.get(answer).getTerm());
-                if (player.get_cards().get(answer).incFamiliarity()) {
-                    player.remove_card(spell_cards.get(answer));
+                if (player.getCards().get(answer).incFamiliarity()) {
+                    player.removeCard(spell_cards.get(answer));
                 }
             } else {
                 System.out.printf("\nYou chose incorrectly... -1 famililarity to %s", spell_cards.get(answer).getTerm());
-                player.get_cards().get(answer).decFamiliarity();
+                player.getCards().get(answer).decFamiliarity();
             }
             System.out.println("\n");
         }
@@ -105,7 +105,7 @@ public class Main {
     /**
      * This method prints the rules of the flashcard game.
      */
-    public static void print_rules() {
+    public static void printRules() {
         System.out.println("""
 Rules:
         To start the game, you must enter the path file for the txt file containing your flashcards
